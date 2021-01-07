@@ -19,5 +19,5 @@ Route::get('/', function () {
 });
 
 Route::get('/beranda', [MenuController::class, 'home']);
-Route::get('/info-kegiatan', [MenuController::class, 'info-kegiatan']);
-Route::get('/data-siswa', [MenuController::class, 'data-siswa']);
+Route::get('/info-kegiatan', [MenuController::class, 'info_kegiatan']);
+Route::get('/data-siswa', [MenuController::class, 'data_siswa']);
