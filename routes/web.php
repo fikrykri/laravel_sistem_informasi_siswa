@@ -28,4 +28,13 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::resource('siswa', SiswaController::class);
+Route::resource('siswa', SiswaController::class)
+->middleware('can:isAdmin');
+/**
+ * role akan dicek sesuai dengan kode pada authserviceprovider.php
+ * dengan middleware user dengan role admin saja yang dapa akses
+ * */
+
+ Route::resource('siswa', SiswaController::class)
+ ->only('show')->middleware('can:isAdminSiswa');
+// code diatas akses untuk siswa yang hanya bisa melihat profile siswa saja
