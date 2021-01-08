@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\SiswaController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -17,12 +18,12 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('beranda');
 });
 
 Route::get('/beranda', [MenuController::class, 'home']);
 Route::get('/info-kegiatan', [MenuController::class, 'info_kegiatan']);
-Route::get('/data-siswa', [MenuController::class, 'data_siswa']);
+Route::get('/data-siswa', [SiswaController::class, 'index']);
 
 Auth::routes();
 
@@ -38,3 +39,5 @@ Route::resource('siswa', SiswaController::class)
  Route::resource('siswa', SiswaController::class)
  ->only('show')->middleware('can:isAdminSiswa');
 // code diatas akses untuk siswa yang hanya bisa melihat profile siswa saja
+
+Route::resource('users', UserController::class);
