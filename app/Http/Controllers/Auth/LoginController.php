@@ -41,7 +41,7 @@ class LoginController extends Controller
     // mengarahkan ke halaman sesuai user yang digunakan setelah login
     public function redirectTo() {
         if (Auth::user()->role == 'admin') {
-            $this->redirectTo = route('siswa.index');
+            $this->redirectTo = url('/beranda');
             return $this->redirectTo;
         } else {
             $this->redirectTo = route('siswa.show', Auth::user()->siswa_id);
