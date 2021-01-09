@@ -8,7 +8,7 @@
     </div>
 
     <div class="card-body">
-      <a href="{{ route('users.create') }}" class="btn btn-primary">Tambah Data User</a>
+      <a href="{{ route('users.create') }}" class="btn btn-primary mb-2">Tambah Data User</a>
       <table class="table table-bordered table-striped">
         <tr>
           <th>Id</th>

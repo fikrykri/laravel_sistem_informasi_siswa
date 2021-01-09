@@ -8,7 +8,7 @@
     </div>
 
     <div class="card-body">
-      <a href="{{ route('siswa.create') }}">Tambah Data Siswa</a>
+      <a href="{{ route('siswa.create') }}" class="btn btn-primary mb-2">Tambah Data Siswa</a>
       <table class="table table-bordered table-striped">
         <tr>
           <th>Nama</th>
