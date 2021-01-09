@@ -40,4 +40,5 @@ Route::resource('siswa', SiswaController::class)
  ->only('show')->middleware('can:isAdminSiswa');
 // code diatas akses untuk siswa yang hanya bisa melihat profile siswa saja
 
-Route::resource('users', UserController::class);
+Route::resource('users', UserController::class)
+->middleware('can:isAdmin');
