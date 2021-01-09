@@ -25,7 +25,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('form_tambah_user');
     }
 
     /**
@@ -36,7 +36,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        User::create([
+            'siswa_id' => $request->siswa_id,
+            'name' => $request->nama,
+            'role' => $request->role,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)
+        ]);
+
+        return redirect()->route('users.index');
     }
 
     /**
@@ -58,7 +66,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $datauser = User::find($id);
+        return view('form_edit_user', ['users' => $datauser]);
     }
 
     /**
@@ -70,7 +79,17 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $users = User::find($id);
+
+        $users->siswa_id = $request->siswa_id;
+        $users->name = $request->nama;
+        $users->role = $request->role;
+        $users->email = $request->email;
+        $users->password = bcrypt($request->password);
+        $users->save();
+
+        return redirect()->route('users.index');
+
     }
 
     /**
@@ -81,6 +100,9 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $users = User::find($id);
+        $users->delete();
+
+        return redirect()->route('users.index');
     }
 }
