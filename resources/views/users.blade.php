@@ -11,6 +11,7 @@
       <a href="{{ route('users.create') }}" class="btn btn-primary">Tambah Data User</a>
       <table class="table table-bordered table-striped">
         <tr>
+          <th>Id</th>
           <th>Nama</th>
           <th>Role</th>
           <th>email</th>
@@ -18,6 +19,7 @@
         </tr>
         @foreach($users as $s)
         <tr>
+          <td>{{ $s->siswa_id }}</td>
           <td>{{ $s->name }}</td>
           <td>{{ $s->role }}</td>
           <td>{{ $s->email }}</td>
